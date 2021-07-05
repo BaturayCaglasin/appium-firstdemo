@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.offset.PointOption;
+import org.aspectj.weaver.tools.cache.AsynchronousFileCacheBacking;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
@@ -38,6 +39,8 @@ switch (platformName){
 
         desiredCapabilities.setCapability(MobileCapabilityType.APP,andAppUrl);
         desiredCapabilities.setCapability("simulatorStartupTimeout",180000);
+        desiredCapabilities.setCapability("unlockType", "pin");
+        desiredCapabilities.setCapability("unlockKey","1111");
 
         return new AndroidDriver(url,desiredCapabilities);
 
